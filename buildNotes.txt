@@ -1,0 +1,6 @@
+
+create cloudtrail * optional
+
+
+create s3 bucket (test-gatsby-deploy)
+create buildspec.yml
