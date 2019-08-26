@@ -1,4 +1,4 @@
-version: 0.1
+# version: 0.1
 # phases:    
 #     install:        
 #         commands:            
@@ -19,8 +19,12 @@ version: 0.1
 #         - '**/*'    
 #     discard-paths: yes
 
+version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      nodejs: 8
     commands:
       - npm install --global yarn
       - npm install --global gatsby-cli
