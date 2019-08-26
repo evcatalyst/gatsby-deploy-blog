@@ -1,20 +1,29 @@
 version: 0.1
-phases:    
-    install:        
-        commands:            
-            - 'touch .npmignore'            
-            - 'npm install -g gatsby'    
-    pre_build:        
-        commands:            
-            - 'npm install'    
-    build:        
-        commands:            
-            - 'npm run build'    
-    post_build:        
-        commands:            
-            - 'aws s3 sync "public/" "s3://test-gatsby-deploy" --delete --acl "public-read"
-'artifacts:    
-    base-directory: public    
-    files:        
-        - '**/*'    
-    discard-paths: yes
+# phases:    
+#     install:        
+#         commands:            
+#             - 'touch .npmignore'            
+#             - 'npm install -g gatsby'    
+#     pre_build:        
+#         commands:            
+#             - 'npm install'    
+#     build:        
+#         commands:            
+#             - 'npm run build'    
+#     post_build:        
+#         commands:            
+#             - 'aws s3 sync "public/" "s3://test-gatsby-deploy" --delete --acl "public-read"
+# 'artifacts:    
+#     base-directory: public    
+#     files:        
+#         - '**/*'    
+#     discard-paths: yes
+
+phases:
+  install:
+    commands:
+      - npm install --global yarn
+      - npm install --global gatsby-cli
+      - yarn
+      - gatsby build
+      - aws s3 sync public s3://test-gatsby-deploy --delete
