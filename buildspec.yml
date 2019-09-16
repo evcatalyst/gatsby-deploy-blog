@@ -1,22 +1,22 @@
 # version: 0.1
-# phases:    
-#     install:        
-#         commands:            
-#             - 'touch .npmignore'            
-#             - 'npm install -g gatsby'    
-#     pre_build:        
-#         commands:            
-#             - 'npm install'    
-#     build:        
-#         commands:            
-#             - 'npm run build'    
-#     post_build:        
-#         commands:            
+# phases:
+#     install:
+#         commands:
+#             - 'touch .npmignore'
+#             - 'npm install -g gatsby'
+#     pre_build:
+#         commands:
+#             - 'npm install'
+#     build:
+#         commands:
+#             - 'npm run build'
+#     post_build:
+#         commands:
 #             - 'aws s3 sync "public/" "s3://test-gatsby-deploy" --delete --acl "public-read"
-# 'artifacts:    
-#     base-directory: public    
-#     files:        
-#         - '**/*'    
+# 'artifacts:
+#     base-directory: public
+#     files:
+#         - '**/*'
 #     discard-paths: yes
 
 version: 0.2
@@ -31,3 +31,4 @@ phases:
       - yarn
       - gatsby build
       - aws s3 sync public s3://test-gatsby-deploy --delete
+      - aws s3api put-object-acl --bucket test-gatsby-deploy --acl public-read
