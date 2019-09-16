@@ -30,5 +30,5 @@ phases:
       - npm install --global gatsby-cli
       - yarn
       - gatsby build
-      - aws s3 sync public s3://test-gatsby-deploy --delete
-      - aws s3api put-object-acl --bucket test-gatsby-deploy --acl public-read
+      - aws s3 sync public s3://test-gatsby-deploy --acl public-read --delete
+#      - aws s3api put-object-acl --bucket test-gatsby-deploy --acl public-read
