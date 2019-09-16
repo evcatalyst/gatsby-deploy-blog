@@ -16,7 +16,6 @@ module.exports = {
 
   siteMetadata: {
     title: "Gatsby Deployment Testing",
-    //    description: "This is my cool blog.",
     description: dateTime,
   },
   plugins: [
