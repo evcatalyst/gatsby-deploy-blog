@@ -4,12 +4,20 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+var today = new Date()
+var date =
+  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
+var time =
+  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+var dateTime = date + " " + time
+
 module.exports = {
   /* Your site config here */
 
   siteMetadata: {
-    title: "My Blog",
-    description: "This is my cool blog.",
+    title: "Gatsby Deployment Testing",
+    //    description: "This is my cool blog.",
+    description: dateTime,
   },
   plugins: [
     `gatsby-transformer-remark`,
